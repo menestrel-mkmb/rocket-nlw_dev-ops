@@ -13,3 +13,13 @@ COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 RUN pnpm build
 RUN pnpm prune --prod
 
+FROM node:20-alpine3.19 as deploy
+WORKDIR /usr/src/app
+RUN npm i -g pnpm prisma
+COPY --from=build /usr/src/app/dist ./dist
+COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/package.json ./package.json
+COPY --from=build /usr/src/app/prisma ./prisma
+RUN pnpm prisma generate
+EXPOSE 3333
+CMD ["pnpm", "start"]
