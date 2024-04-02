@@ -24,4 +24,4 @@ jobs:
           echo "sha=${SHA}" >> $GITHUB_OUTPUT
       
       - name: Build docker image
-        run: docker build -t archsoup/passin:${{steps.generate_sha.outputs.sha}} -f ./api/Dockerfile
+        run: docker build -t archsoup/passin:${{steps.generate_sha.outputs.sha}} .
