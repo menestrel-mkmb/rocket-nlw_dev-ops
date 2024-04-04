@@ -21,5 +21,8 @@ COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/package.json ./package.json
 COPY --from=build /usr/src/app/prisma ./prisma
 RUN pnpm prisma generate
+COPY wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
 EXPOSE 3333
-CMD ["pnpm", "start"]
+CMD [ "/wait-for-it.sh", "postgres:5432", "--", "pnpm", "start" ]
