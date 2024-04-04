@@ -18,13 +18,14 @@ services:
       - passin
 
   api-pass-in:
-    build: 
+    build:
       context: .
     container_name: api-pass-in
     ports:
       - 3001:3333
     environment:
-      - DATABASE_URL=postgresql://admin:admin@postgres:5432/passin
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
+      # - DATABASE_URL=postgresql://${DO_PG_USER}:${DO_PG_PASSWORD}@nlw-unite-cluster-do-user-16235693-0.c.db.ondigitalocean.com:25060/nlw-unite?sslmode=require
       - API_BASE_URL=http://localhost:3333
     depends_on:
       - postgres
