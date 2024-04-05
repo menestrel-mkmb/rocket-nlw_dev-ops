@@ -7,10 +7,9 @@ metadata:
     app: passin
 
 spec:
-  type: ClusterIP
-
   selector:
     app: passin
+  type: ClusterIP
   ports:
   - name: passin-service
     port: 80
