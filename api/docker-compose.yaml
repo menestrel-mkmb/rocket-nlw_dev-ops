@@ -2,20 +2,20 @@ version: '3.7'
 
 services:
 
-  postgres:
-    image: postgres:16.2-alpine3.19
-    container_name: db-pass-in
-    restart: always
-    ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    volumes:
-      - 'db:/var/lib/postgresql/data'
-    networks:
-      - passin
+  # postgres:
+  #   image: postgres:16.2-alpine3.19
+  #   container_name: db-pass-in
+  #   restart: always
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #   volumes:
+  #     - 'db:/var/lib/postgresql/data'
+  #   networks:
+  #     - passin
 
   api-pass-in:
     build:
@@ -24,11 +24,11 @@ services:
     ports:
       - 3001:3333
     environment:
-      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
-      # - DATABASE_URL=postgresql://${DO_PG_USER}:${DO_PG_PASSWORD}@nlw-unite-cluster-do-user-16235693-0.c.db.ondigitalocean.com:25060/nlw-unite?sslmode=require
+      # - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
+      - DATABASE_URL=postgresql://${DO_PG_USER}:${DO_PG_PASSWORD}@nlw-unite-cluster-do-user-16235693-0.c.db.ondigitalocean.com:25060/nlw-unite?sslmode=require
       - API_BASE_URL=http://localhost:3333
-    depends_on:
-      - postgres
+    # depends_on:
+    #   - postgres
     networks:
       - passin
 
