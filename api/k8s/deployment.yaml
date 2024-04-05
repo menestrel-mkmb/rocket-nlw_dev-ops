@@ -21,10 +21,16 @@ spec:
         image: archsoup/passin:43795ae
         env:
         - name: DATABASE_URL
-          value: "postgresql://admin:admin@postgres:5432/passin"
-          # value: "postgresql://${DO_PG_USER}:${DO_PG_PASSWORD}@nlw-unite-cluster-do-user-16235693-0.c.db.ondigitalocean.com:25060/nlw-unite?sslmode=require"
+          # value: "postgresql://admin:admin@postgres:5432/passin"
+          valueFrom:
+            secretKeyRef:
+              name: db-connection
+              key: url
         - name: API_BASE_URL
-          value: "http://localhost:3333"
+          valueFrom:
+            configMapKeyRef:
+              name: nlw-env
+              key: url
         ports:
         - containerPort: 3333
         resources:
