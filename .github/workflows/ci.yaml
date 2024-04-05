@@ -44,6 +44,6 @@ jobs:
          branch: main
          valueField: 'api/deploy/values.yaml'
          propertyPath: 'image.tag'
-         value: ${{steps.generate_sha.outputs.sha}}
+         value: ${{ steps.generate_sha.outputs.sha }}
          commitChanges: true
          commitMessage: 'deploy: Updated image tag in values helm for argocd'
