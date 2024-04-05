@@ -21,7 +21,7 @@ jobs:
           echo "sha=${SHA}" >> $GITHUB_OUTPUT
 
       - name: Build docker image
-        run: docker build -t archsoup/passin:${{ steps.generate_sha.outputs.sha }} .
+        run: docker build -t archsoup/passin:${{ steps.generate_sha.outputs.sha }} -f api/Dockerfile api
 
       - name: Log into the container registry
         uses: docker/login-action@v3
