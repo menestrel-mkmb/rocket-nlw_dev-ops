@@ -21,7 +21,6 @@ spec:
         image: archsoup/passin:43795ae
         env:
         - name: DATABASE_URL
-          # value: "postgresql://admin:admin@postgres:5432/passin"
           valueFrom:
             secretKeyRef:
               name: db-connection
