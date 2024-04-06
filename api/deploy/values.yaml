@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: archsoup/passin
   pullPolicy: Always
-  tag: b22db75
+  tag: 4ad518c
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
