@@ -10,3 +10,13 @@ metadata:
 stringData:
   type: git
   url: git@github.com:menestrel-mkmb/rocket__nlw__dev-ops.git
+  sshPrivateKey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABDpWZpdtv
+    7QeRM0ppCI28g4AAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIB3ycGcM9nzsAvvk
+    QThezJUeetXpAz5jmvWZz8s2Io+XAAAAwNXBZEsKfbMVYpR41AS1ehJFlYTKOkABb5qTY+
+    9nhC5S1yym2xQp3dtMWcpNNwfOhEIItt5VKypvcErGhlUbtDnSrmjVtI1dMiaqjgoH6w25
+    vxb3A/kSq8rx3OWBYJIXtz9rdGo0gkUhm98BKFGSrdfYEK9Tzzq6JJej6JnrU5UUNqkufy
+    q+rfxlGe5mXPcE1umfa75rhzca5Hog+1cQPbjNGMzv0sx9twNrzs+y1y+AmYg55k018ocW
+    HNMrpOsmww==
+    -----END OPENSSH PRIVATE KEY-----
